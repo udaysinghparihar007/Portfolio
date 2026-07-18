@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log("Logging in with:", {
@@ -15,92 +16,92 @@ export default function LoginPage() {
     });
   };
 
-
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 flex items-center justify-center px-4">
-      {/* Glass Card */}
-      <div className="w-full max-w-md bg-white/20 backdrop-blur-md p-8 rounded-2xl shadow-2xl text-white">
-        {/* Logo / Title */}
-        <h1 className="text-3xl font-bold text-center mb-2 drop-shadow-lg">Welcome Back</h1>
-        <p className="text-center text-gray-200 mb-8">
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-white text-black border-4 border-black p-8 rounded-none shadow-none">
+        <h1 className="text-3xl font-bold text-center mb-2 drop-shadow-lg">
+          Welcome Back
+        </h1>
+
+        <p className="text-center mb-8">
           Login to continue to <span className="font-semibold">MyBrand</span>
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Email */}
           <div>
-            <label className="block mb-2 text-sm font-semibold text-gray-100">
+            <label className="block mb-2 text-sm font-semibold">
               Email
             </label>
+
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
               required
               placeholder="Enter your email"
-              className="w-full px-4 py-2 rounded-lg bg-white/30 placeholder-gray-100 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="w-full px-4 py-2 bg-gray-200 border border-black focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
 
-          {/* Password */}
           <div>
-            <label className="block mb-2 text-sm font-semibold text-gray-100">
+            <label className="block mb-2 text-sm font-semibold">
               Password
             </label>
+
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
               required
               placeholder="Enter your password"
-              className="w-full px-4 py-2 rounded-lg bg-white/30 placeholder-gray-100 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="w-full px-4 py-2 bg-gray-200 border border-black focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
 
-          {/* Remember Me & Forgot Password */}
-          <div className="flex items-center justify-between text-sm text-gray-100">
-            <label className="flex items-center space-x-2">
+          <div className="flex items-center justify-between text-sm">
+            <label className="flex items-center gap-2">
               <input
                 type="checkbox"
-                className="accent-white bg-white/20"
+                className="accent-black border border-black"
               />
               <span>Remember me</span>
             </label>
+
             <Link href="/forgot-password" className="hover:underline">
               Forgot password?
             </Link>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 mt-2 bg-white/30 hover:bg-white/50 rounded-lg font-semibold text-white transition-all duration-300"
+            className="w-full py-3 bg-black text-white hover:bg-gray-800 transition"
           >
             Login
           </button>
         </form>
 
-        {/* Divider */}
-        <div className="flex items-center justify-center my-6">
-          <span className="w-1/3 border-t border-white/40"></span>
-          <span className="px-3 text-gray-100 text-sm">or</span>
-          <span className="w-1/3 border-t border-white/40"></span>
+        <div className="flex items-center my-6">
+          <div className="flex-1 border-t border-black" />
+          <span className="px-3 text-sm">or</span>
+          <div className="flex-1 border-t border-black" />
         </div>
 
-        {/* Social Login Buttons */}
         <div className="flex gap-3">
-          <button className="flex-1 py-2 bg-blue-600/70 hover:bg-blue-600 rounded-lg font-medium transition-all duration-300">
+          <button className="flex-1 py-2 border border-black hover:bg-gray-200">
             Login with Google
           </button>
-          <button className="flex-1 py-2 bg-gray-800/70 hover:bg-gray-800 rounded-lg font-medium transition-all duration-300">
+
+          <button className="flex-1 py-2 bg-black text-white hover:bg-gray-800">
             GitHub
           </button>
         </div>
 
-        {/* Register Link */}
-        <p className="text-center text-sm text-gray-100 mt-6">
-          Don’t have an account?{" "}
+        <p className="text-center text-sm mt-6">
+          Don't have an account?{" "}
           <Link href="/sign-up" className="font-semibold hover:underline">
             Sign Up
           </Link>
