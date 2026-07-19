@@ -422,7 +422,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 11,
+    id: 12,
     title: "project name",
     date: "date",
     description:
@@ -440,7 +440,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 11,
+    id: 13,
     title: "project name",
     date: "date",
     description:
@@ -458,7 +458,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 11,
+    id: 14,
     title: "project name",
     date: "date",
     description:
