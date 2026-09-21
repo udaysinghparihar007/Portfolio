@@ -146,10 +146,10 @@ export default function HomePage() {
               className="bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:scale-105 transition-all"
             >
               <img
-                src={proj.image}
-                alt={proj.title}
-                className="rounded-lg mb-4 w-full h-40 object-cover"
-              />
+  src={proj.image}
+  alt={proj.title}
+  className="w-full aspect-video object-cover rounded-lg mb-4"
+/>
               <h3 className="text-xl font-semibold mb-2">{proj.title}</h3>
               <p className="text-sm text-gray-100 mb-3">{proj.description.slice(0, 120)}...</p>
               <div className="flex gap-3 mt-4">

@@ -405,12 +405,12 @@ export const education = [
 export const projects = [
   {
     id: 11,
-    title: "project name",
-    date: "date",
+    title: "NOVA/MARKET",
+    date: "21-09-26",
     description:
-      "description",
+      "NOVA/MARKET is a database-driven e-commerce application focused on consumer technology products such as smartphones, laptops, and audio devices.",
     image:
-      "",
+      "./projects/novamarket.png",
     tags: [
       "React Js",
       "PostgressSQL",
@@ -418,8 +418,8 @@ export const projects = [
       "Express Js",
     ],
     category: "web app",
-    github: "",
-    webapp: "",
+    github: "https://github.com/udaysinghparihar007/NOVA-MARKET",
+    webapp: "https://nova-market-omega.vercel.app/",
   },
   {
     id: 12,
