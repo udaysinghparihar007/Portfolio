@@ -6,14 +6,13 @@ import Link from "next/link";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("Logging in with:", {
-      email,
-      password,
-    });
+    setMessage(`Login is not connected yet for ${email}.`);
+    void password;
   };
 
   return (
@@ -82,6 +81,11 @@ export default function LoginPage() {
           >
             Login
           </button>
+          {message && (
+            <p role="status" className="text-sm">
+              {message}
+            </p>
+          )}
         </form>
 
         <div className="flex items-center my-6">
@@ -101,7 +105,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center text-sm mt-6">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/sign-up" className="font-semibold hover:underline">
             Sign Up
           </Link>

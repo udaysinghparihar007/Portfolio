@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 export default function SignUpPage() {
+  const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +16,11 @@ export default function SignUpPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Sign Up Data:", formData);
+    setMessage(
+      formData.password === formData.confirmPassword
+        ? "Account creation is not connected yet."
+        : "Passwords do not match."
+    );
   };
 
   return (
@@ -101,6 +106,11 @@ export default function SignUpPage() {
           >
             Sign Up
           </button>
+          {message && (
+            <p role="status" className="text-sm text-gray-100">
+              {message}
+            </p>
+          )}
         </form>
 
         {/* Divider */}

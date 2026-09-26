@@ -4,10 +4,11 @@ import Link from "next/link";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Password reset link sent to:", email);
+    setMessage(`Password reset is not connected yet for ${email}.`);
   };
 
   return (
@@ -46,6 +47,11 @@ export default function ForgotPasswordPage() {
           >
             Send Reset Link
           </button>
+          {message && (
+            <p role="status" className="text-sm text-gray-100">
+              {message}
+            </p>
+          )}
         </form>
 
         {/* Divider */}
